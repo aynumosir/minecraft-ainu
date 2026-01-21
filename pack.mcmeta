@@ -1,0 +1,16 @@
+{
+  "pack": {
+    "pack_format": 34,
+    "description": "アイヌ語版のテスト"
+  },
+  "language": {
+    "ain_jp": {
+      "name": "aynu itak",
+      "region": "aynu mosir",
+      "bidirectional": false
+    }
+  }
+}
+
+
+
