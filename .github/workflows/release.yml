@@ -37,9 +37,8 @@ jobs:
         run: bin/generate_kana
 
       - name: Create archive
-        run: |
-          cd pack
-          zip -r ../minecraft-ainu.zip .
+        working-directory: ./pack
+        run: zip -r ../minecraft-ainu.zip .
 
       - name: Upload asset
         run: gh release upload "${{ github.ref_name }}" minecraft-ainu.zip --clobber
