@@ -18,6 +18,16 @@ jobs:
         with:
           fetch-depth: 2
 
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: 'npm'
+          cache-dependency-path: scripts/package-lock.json
+
+      - name: Install dependency
+        working-directory: ./scripts
+        run: npm install
+
       - name: Remove source files
         run: |
           rm ./pack/assets/minecraft/lang/en_us.json
