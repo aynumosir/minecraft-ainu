@@ -1,13 +1,16 @@
 {
   "pack": {
-    "pack_format": 75,
+    "pack_format": 34,
     "description": "アイヌ語版のテスト"
   },
   "language": {
-    "ain_latn": {
+    "ain_us": {
       "name": "aynu itak",
-      "region": "aynu mosir",
-      "bidirectional": false
+      "region": "aynu mosir"
+    },
+    "ain_kana": {
+      "name": "アイヌ イタㇰ",
+      "region": "アイヌ モシㇼ"
     }
   }
 }

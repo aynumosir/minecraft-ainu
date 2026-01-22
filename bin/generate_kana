@@ -1,0 +1,1 @@
+npx tsx ./scripts/src/generate_kana.ts ./pack

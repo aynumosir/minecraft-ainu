@@ -23,6 +23,9 @@ jobs:
           rm ./pack/assets/minecraft/lang/en_us.json
           rm ./pack/assets/minecraft/lang/ja_jp.json
 
+      - name: Generate Kana
+        run: bin/generate_kana
+
       - name: Create archive
         run: |
           cd pack
