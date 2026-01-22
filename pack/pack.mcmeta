@@ -4,7 +4,7 @@
     "description": "アイヌ語版のテスト"
   },
   "language": {
-    "ain_jp": {
+    "ain_latn": {
       "name": "aynu itak",
       "region": "aynu mosir",
       "bidirectional": false
