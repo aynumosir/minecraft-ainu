@@ -19,7 +19,9 @@ jobs:
           fetch-depth: 2
 
       - name: Create archive
-        run: zip -r minecraft-ainu.zip pack/
+        run: |
+          cd pack
+          zip -r ../minecraft-ainu.zip .
 
       - name: Upload asset
         run: gh release upload "${{ github.ref_name }}" minecraft-ainu.zip --clobber
