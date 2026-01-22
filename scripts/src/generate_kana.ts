@@ -2,25 +2,20 @@ import fs from "fs/promises";
 import path from "path";
 import { default as ainu } from "ainu-utils";
 
-const VARIABLE = /%(\d\$)?[sdf]{1}/g;
-const SAFE_VARIABLE = /\$([0-9]+)/g;
+const PROTECTED_TOKENS = /(%(?:\d+\$)?[sdf]|\b[A-Z]+\b)/;
 
 function safeConvertToKana(text: string) {
-  const counter = 0;
-  const registry = new Map<string, string>();
+  const normalized = text.replace(/’/g, "'");
 
-  let safeText = text.replace(VARIABLE, (match) => {
-    const key = `$${counter}`;
-    registry.set(key, match);
-    return key;
-  });
-  safeText = safeText.replace(/’/g, "'");
-
-  const kana = ainu.to_kana(safeText);
-
-  return kana.replace(SAFE_VARIABLE, (match, p1) => {
-    return registry.get(`$${p1}`) ?? match;
-  });
+  return normalized
+    .split(PROTECTED_TOKENS)
+    .map((part) => {
+      if (PROTECTED_TOKENS.test(part)) {
+        return part;
+      }
+      return ainu.to_kana(part);
+    })
+    .join("");
 }
 
 const base = process.argv[2];
@@ -38,4 +33,3 @@ const kanaJson = JSON.stringify(kana, null, 2);
 const kanaPath = path.join(base, "assets/minecraft/lang/ain_kana.json");
 
 await fs.writeFile(kanaPath, kanaJson, "utf-8");
-
