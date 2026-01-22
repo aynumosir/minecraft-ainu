@@ -6,5 +6,5 @@ export namespace AssetIndex {
 }
 
 export interface AssetIndex {
-  objects: Record<string, Object>;
+  objects: Record<string, AssetIndex.Object>;
 }

@@ -4,15 +4,13 @@ import { VersionManifest } from "./version_manifest.js";
 
 const VERSION_MANIFEST_URL = new URL("https://launchermeta.mojang.com/mc/game/version_manifest.json");
 
-const fetchVersionManifest = async (): Promise<VersionManifest> => {
+export const fetchVersionManifest = async (): Promise<VersionManifest> => {
   const res = await fetch(VERSION_MANIFEST_URL);
   const data = await res.json();
   return data as VersionManifest;
 }
 
-export const fetchLatestPackage = async (): Promise<Package> => {
-  const versionManifest = await fetchVersionManifest();
-
+export const fetchLatestPackage = async (versionManifest: VersionManifest): Promise<Package> => {
   const id = versionManifest.latest.release;
   const version = versionManifest.versions.find((version) => version.id === id)!;
 
@@ -22,8 +20,8 @@ export const fetchLatestPackage = async (): Promise<Package> => {
   return data as Package;;
 }
 
-export const fetchLatestAssetIndex = async (): Promise<AssetIndex> => {
-  const pkg = await fetchLatestPackage();
+export const fetchLatestAssetIndex = async (versionManifest: VersionManifest): Promise<AssetIndex> => {
+  const pkg = await fetchLatestPackage(versionManifest);
   const res = await fetch(pkg.assetIndex.url);
   const data = await res.json();
 
@@ -38,8 +36,7 @@ export const fetchAsset = async (hash: string): Promise<Blob> => {
   return data;
 }
 
-export const fetchLatestClientJar = async (): Promise<Blob> => {
-  const pkg = await fetchLatestPackage();
+export const fetchLatestClientJar = async (pkg: Package): Promise<Blob> => {
   const res = await fetch(pkg.downloads.client.url);
   return res.blob();
 }
