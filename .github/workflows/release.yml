@@ -18,6 +18,11 @@ jobs:
         with:
           fetch-depth: 2
 
+      - name: Remove source files
+        run: |
+          rm ./pack/assets/minecraft/lang/en_us.json
+          rm ./pack/assets/minecraft/lang/ja_jp.json
+
       - name: Create archive
         run: |
           cd pack
