@@ -1,0 +1,12 @@
+{
+  "name": "pack-scripts",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@tsconfig/node24": "^24.0.4",
+    "@types/adm-zip": "^0.5.7",
+    "@types/node": "^25.0.10",
+    "adm-zip": "^0.5.16",
+    "typescript": "^5.9.3"
+  }
+}
