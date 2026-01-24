@@ -11,6 +11,10 @@
     "ain_kana": {
       "name": "アイヌ イタㇰ",
       "region": "アイヌ モシㇼ"
+    },
+    "ain_latn_nkgw": {
+      "name": "aynu itak",
+      "region": "aynu mosir / nakagawa orth."
     }
   }
 }
