@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import { default as ainu } from "ainu-utils";
 
-const PROTECTED_TOKENS = /(%(?:\d+\$)?[sdf]|\b[A-Z]+\b)/;
+const PROTECTED_TOKENS = /(%(?:\d+\$)?[sdf]|\b[A-Z]+\b|-\{[^}]+\}-)/;
 
 function safeConvertToKana(text: string) {
   const normalized = text.replace(/’/g, "'");
