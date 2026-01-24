@@ -10,10 +10,17 @@ describe("safeConvertToKana", () => {
   });
 
   it("keeps protected format tokens unchanged", () => {
-    const input = "%s TEST";
+    const input = "%s a=rayke wa isam";
     const output = safeConvertToKana(input);
 
-    expect(output).toBe("%s　TEST");
+    expect(output).toBe("%s　アライケ　ワ　イサㇺ");
+  });
+
+  it("keeps numbered format tokens unchanged", () => {
+    const input = "%1$s itokpa %2$s";
+    const output = safeConvertToKana(input);
+
+    expect(output).toBe("%1$s　イトㇰパ　%2$s");
   });
 
   it("keeps acronyms and converts surrounding words", () => {
