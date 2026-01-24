@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { safeConvertToKana } from "./generate_kana";
+import { safeConvertToKana, stripEscapeMarkers } from "./generate_kana";
 
 describe("safeConvertToKana", () => {
   it("keeps protected text but strips escape markers", () => {
@@ -7,6 +7,13 @@ describe("safeConvertToKana", () => {
     const output = safeConvertToKana(input);
 
     expect(output).toBe("Copyright　アイヌモシㇼ。　イテキ　エイメㇰ　ヤン！");
+  });
+
+  it("strips escape markers without kana conversion", () => {
+    const input = "-{Aynumosir}-";
+    const output = stripEscapeMarkers(input);
+
+    expect(output).toBe("Aynumosir");
   });
 
   it("keeps protected format tokens unchanged", () => {

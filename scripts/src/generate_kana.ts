@@ -5,6 +5,10 @@ import { fileURLToPath } from "url";
 
 export const PROTECTED_TOKENS = /(%(?:\d+\$)?[sdf]|\b[A-Z]+\b|-\{[^}]+\}-)/;
 
+export function stripEscapeMarkers(text: string) {
+  return text.replace(/’/g, "'").replace(/-\{([^}]+)\}-/g, "$1");
+}
+
 export function safeConvertToKana(text: string) {
   const normalized = text.replace(/’/g, "'");
 
@@ -29,9 +33,17 @@ async function main() {
   const latnJson = await fs.readFile(latnPath, "utf-8");
   const latn = JSON.parse(latnJson);
 
-  const kana = Object.fromEntries(
+  const cleanedLatn = Object.fromEntries(
     Object
       .entries(latn)
+      .map(([key, value]) => [key, stripEscapeMarkers(value as string)])
+  );
+  const cleanedLatnJson = JSON.stringify(cleanedLatn, null, 2);
+  await fs.writeFile(latnPath, cleanedLatnJson, "utf-8");
+
+  const kana = Object.fromEntries(
+    Object
+      .entries(cleanedLatn)
       .map(([key, value]) => [key, safeConvertToKana(value as string)])
   );
   const kanaJson = JSON.stringify(kana, null, 2);
