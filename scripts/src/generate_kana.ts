@@ -43,7 +43,7 @@ async function main() {
 
   const kana = Object.fromEntries(
     Object
-      .entries(cleanedLatn)
+      .entries(latn)
       .map(([key, value]) => [key, safeConvertToKana(value as string)])
   );
   const kanaJson = JSON.stringify(kana, null, 2);
