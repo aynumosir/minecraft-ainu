@@ -11,8 +11,8 @@ Kana generation preserves certain tokens and escape patterns:
 - Protected text escape: wrap text in `-{...}-` to keep the inner text unconverted while removing the markers.
   - Example: `-{Copyright}- Aynumosir.` → `Copyright　アイヌモシㇼ。`
 - Format tokens: `%s`, `%d`, `%f` (with optional positional specifiers like `%1$s`) are preserved.
-  - Example: `%s TEST` → `%s　TEST`
-  - Example (numbered): `%1$s TEST` → `%1$s　TEST`
+  - Example: `%s a=rayke wa isam` → `%s　アライケ　ワ　イサㇺ`
+  - Example (numbered): `%1$s itokpa %2$s` → `%1$s　イトㇰパ　%2$s`
 - Acronyms: all-uppercase words are preserved.
   - Example: `LAN or ta maka` → `LAN　オㇿ　タ　マカ`
 
