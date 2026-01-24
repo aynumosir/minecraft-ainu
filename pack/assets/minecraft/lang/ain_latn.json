@@ -1532,7 +1532,7 @@
   "painting.minecraft.sea.title": "Atuysam",
   "painting.minecraft.sunflowers.title": "cupkohekirup",
   "painting.minecraft.water.title": "wakka",
-  "recover_world.done.title": "sipi okere",
+  "recover_world.done.title": "sipi okere ruwe ne",
   "selectServer.delete": "uska",
   "selectServer.deleteButton": "uska",
   "selectServer.edit": "nuye",
@@ -1566,7 +1566,7 @@
   "subtitles.ui.stonecutter.take_result": "a eywanke sumatuye kemausita",
   "telemetry_info.button.give_feedback": "caranke",
   "test_block.message": "sonko:",
-  "title.credits": "Copyright Mojang AB. iteki eymek yan!",
+  "title.credits": "-{Copyright Mojang AB}-. iteki eymek yan!",
   "title.singleplayer": "sinenne sinot",
   "translation.test.none": "irankarapte mosirepitta!",
   "translation.test.world": "mosir"
