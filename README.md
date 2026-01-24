@@ -30,6 +30,10 @@ Now you can switch to the Ainu language. Open **Options > Language…** and sele
 
 Help improve the translation on [Crowdin](https://crowdin.com/project/minecraft-aynu).
 
+### Testing
+
+Run `npm test` in `scripts/` to check kana conversion behavior.
+
 ### Script Escapes
 
 Kana generation preserves certain tokens and escape patterns:
