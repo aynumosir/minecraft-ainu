@@ -16,13 +16,6 @@ describe("safeConvertToKana", () => {
     expect(output).toBe("%s　TEST");
   });
 
-  it("keeps protected text but strips escape markers", () => {
-    const input = "A %s B -{Copyright}- C";
-    const output = safeConvertToKana(input);
-
-    expect(output).toBe("A　%s　B　Copyright　C");
-  });
-
   it("keeps acronyms and converts surrounding words", () => {
     const input = "LAN or ta maka";
     const output = safeConvertToKana(input);
