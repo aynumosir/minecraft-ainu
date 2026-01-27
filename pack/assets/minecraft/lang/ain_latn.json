@@ -1286,6 +1286,7 @@
   "entity.minecraft.turtle": "ecinke",
   "entity.minecraft.vex": "a=eranak pon kur",
   "entity.minecraft.villager": "kotankur",
+  "entity.minecraft.villager.fletcher": "aykarkur",
   "entity.minecraft.villager.none": "kotankur",
   "entity.minecraft.wolf": "horkew",
   "flat_world_preset.minecraft.desert": "otanup",
